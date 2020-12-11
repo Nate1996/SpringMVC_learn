@@ -7,21 +7,13 @@ import org.springframework.web.servlet.mvc.Controller;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class HelloController implements Controller {
-
+public class ControllerDemo implements Controller {
     public ModelAndView handleRequest(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse) throws Exception {
-        ModelAndView mvc = new ModelAndView();
+        ModelAndView view = new ModelAndView();
 
-        //业务代码
-        String result = "HelloSpringMVC";
+        view.addObject("msg","ControllerDemo");
+        view.setViewName("test");
 
-        mvc.addObject("msg",result);
-
-        //视图跳转
-        mvc.setViewName("test");
-
-
-        return mvc;
+        return view;
     }
 }
-
